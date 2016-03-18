@@ -65,7 +65,7 @@ A first ruleset for the Quickstart
       raise explicit event 'new_user'
         attributes new_user;
       log("LOG asking to create: " + name);
-      log("LOG users existing: " + users());
+      log("LOG users existing: " + users().keys());
     }
   }
   rule store_name {
