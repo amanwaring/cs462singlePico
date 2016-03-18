@@ -105,17 +105,16 @@ A first ruleset for the Quickstart
           "visits": 1
         };
       }
-      {
-        send_directive("say") with
-          something = "Hello #{first_name} #{last_name}";
-        send_directive("new_user") with
-          passed_id = id and
-          passed_first = first and
-          passed_last = last
-      }
-      always {
-        set ent:name{[id]} new_user;
-      }
+    {
+      send_directive("say") with
+        something = "Hello #{first_name} #{last_name}";
+      send_directive("new_user") with
+        passed_id = id and
+        passed_first = first and
+        passed_last = last
+    }
+    always {
+      set ent:name{[id]} new_user;
     }
   }
  
