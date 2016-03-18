@@ -1,6 +1,6 @@
-ruleset part_one {
+ruleset echo {
 	meta {
-		name "Part One"
+		name "echo"
 		description << part one of the single pico lab >>
 		author "Andrew Manwaring"
 		logging on
