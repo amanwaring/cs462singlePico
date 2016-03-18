@@ -30,6 +30,7 @@ A first ruleset for the Quickstart
     }
     user_by_name = function(full_name) {
       all_users = users();
+      log("LOG user_by_name. full_name: " + full_name + " all_users: " + all_users);
       filtered_users = all_users.filter( function(user_id, val) {
         constructed_name = val{["name", "first"]} + " " + val{["name","last"]};
         (constructed_name eq full_name);
