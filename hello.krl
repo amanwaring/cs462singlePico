@@ -27,16 +27,16 @@ A first ruleset for the Quickstart
       last = all_users{[id, "name", "last"]}.defaultsTo("9000", "could not find user");
       name = first + " " + last;
       name;
-    }
-    user_by_name = function(full_name) {
+    }  
+    user_by_name = function(full_name){
       all_users = users();
-      filtered_users = all_users.filter( function(user_id, val) {
-        constructed_name = val{["name", "first"]} + " " + val{["name","last"]};
+      filtered_users = all_users.filter( function(user_id, val){
+        constructed_name = val{["name","first"]} + " " + val{["name","last"]};
         (constructed_name eq full_name);
-      });
-      user = filtered_users.head().klog("mathing user: ");
-      user;
-    }
+        });
+      user = filtered_users.head().klog("matching user: "); // default to default user from previous steps. 
+      user
+    };
   }
   rule hello_world {
     select when echo hello
@@ -65,7 +65,6 @@ A first ruleset for the Quickstart
       raise explicit event 'new_user'
         attributes new_user;
       log("LOG asking to create: " + name);
-      log("LOG users existing: " + users().keys());
     }
   }
   rule store_name {
