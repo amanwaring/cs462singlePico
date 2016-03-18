@@ -11,15 +11,15 @@ ruleset part_one {
 	}
 	rule hello {
 		select when echo hello
-		always {
+		{
 			send_directive("say") with
 				something = "Hello World"
 		}
 	}
 	rule message {
 		select when echo message
-		always {
-			send directive("basketball") with
+		{
+			send_directive("basketball") with
 				truth = "rocks"
 		}
 	}
