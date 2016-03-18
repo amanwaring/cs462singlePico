@@ -64,7 +64,8 @@ A first ruleset for the Quickstart
     else {
       raise explicit event 'new_user'
         attributes new_user;
-      log("LOG asking to create" + name);
+      log("LOG asking to create: " + name);
+      log("LOG users existing: " + users());
     }
   }
   rule store_name {
