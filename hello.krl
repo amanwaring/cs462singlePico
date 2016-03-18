@@ -41,7 +41,7 @@ A first ruleset for the Quickstart
   rule hello_world {
     select when echo hello
     pre {
-      id = event:attr("name").defaultsTo("HAL 9000", "no name passed.");
+      name = event:attr("name").defaultsTo("HAL 9000", "no name passed.");
       full_name = name.split(re/\s/);
       first_name = full_name[0].klog("first: ");
       last_name = full_name[1].klog("last: ");
