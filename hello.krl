@@ -9,6 +9,7 @@ A first ruleset for the Quickstart
     logging on
     sharing on
     provides hello
+    provides users
  
   }
   global {
