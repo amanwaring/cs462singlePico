@@ -37,7 +37,7 @@ A first ruleset for the Quickstart
       passed_name = event:attr("name").klog("our passed in Name: ");
     }
     {
-      send_directove("store_name") with
+      send_directive("store_name") with
         name = passed_name
     }
     always {
