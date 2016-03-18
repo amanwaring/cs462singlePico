@@ -18,9 +18,12 @@ ruleset part_one {
 	}
 	rule message {
 		select when echo message
+		pre {
+			input = event:attr("input").klog("Input: ");
+		}
 		{
-			send_directive("basketball") with
-				truth = "rocks"
+			send_directive("say") with
+				something = input
 		}
 	}
 }
