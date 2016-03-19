@@ -30,12 +30,16 @@ ruleset track_trips_part_2 {
 		select when explicit trip_processed
 		pre {
 			mileage = event:attr("mileage").klog("Mileage: ");
+			attribute = {
+				"mileage":mileage
+			}
 		}
 		if (mileage > long_trip) then {
 			log("Mileage: " + mileage + ", greater than long_trip: " + long_trip);
 		}
 		fired {
 			raise explicit event 'found_long_trip'
+				attributes attribute;
 		}
 	}
 }

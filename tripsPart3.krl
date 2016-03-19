@@ -52,8 +52,8 @@ ruleset trip_store {
 	rule clear_trips {
 		select when car trip_reset
 		always {
-			set ent:trips null;
-			set ent:long_trips null;
+			clear ent:trips;
+			clear ent:long_trips;
 		}
 	}
 }
