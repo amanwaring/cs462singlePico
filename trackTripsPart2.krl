@@ -7,7 +7,7 @@ ruleset track_trips_part_2 {
 		sharing on
 	}
 	global{
-
+		long_trip = 60;
 	}
 	rule process_trip {
 		select when car new_trip
@@ -16,7 +16,24 @@ ruleset track_trips_part_2 {
 		}
 		{
 			send_directive("trip") with
-				trip_length = mileage
+				trip_length = mileage;
+			raise explicit event 'trip_processed'
+				attributes mileage;
+		}
+	}
+	rule find_long_trips {
+		select when explicit trip_processed
+		pre {
+			mileage = event:attr("mileage").klog("Mileage: ");
+		}
+		if (mileage > long_trip) {
+			log("Mileage: " + mileage + ", greater than long_trip: " + long_trip);
+		}
+		fired {
+
+		}
+		else {
+		
 		}
 	}
 }
