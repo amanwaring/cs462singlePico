@@ -13,6 +13,9 @@ ruleset track_trips_part_2 {
 		select when car new_trip
 		pre {
 			mileage = event:attr("mileage").klog("Mileage: ");
+			attribute = {
+				"mileage":mileage
+			}
 		}
 		{
 			send_directive("trip") with
@@ -20,12 +23,11 @@ ruleset track_trips_part_2 {
 		}
 		always {
 			raise explicit event 'trip_processed'
-				attributes mileage;
+				attributes attribute;
 		}
 	}
 	rule find_long_trips {
 		select when explicit trip_processed
-			where event:attr("mileage") > long_trip
 		pre {
 			mileage = event:attr("mileage").klog("Mileageee: ");
 		}
