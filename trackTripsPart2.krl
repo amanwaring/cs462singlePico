@@ -17,6 +17,8 @@ ruleset track_trips_part_2 {
 		{
 			send_directive("trip") with
 				trip_length = mileage;
+		}
+		always {
 			raise explicit event 'trip_processed'
 				attributes mileage;
 		}
@@ -26,14 +28,11 @@ ruleset track_trips_part_2 {
 		pre {
 			mileage = event:attr("mileage").klog("Mileage: ");
 		}
-		if (mileage > long_trip) {
+		if (mileage > long_trip) then {
 			log("Mileage: " + mileage + ", greater than long_trip: " + long_trip);
 		}
 		fired {
-
-		}
-		else {
-		
+			raise explicit event 'found_long_trip'
 		}
 	}
 }
