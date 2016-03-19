@@ -22,9 +22,11 @@ ruleset trip_store {
 
 		short_trips = function() {
 			all_trips = ent:trips;
-			short_trips = all_trips.filter( function(id, v) {
+			short_trips = all_trips.filter( function(id, mileage) {
 				item = id.klog("random item is: ");
-				val = v.klog("random val is: ");
+				val = mileage.klog("random val is: ");
+				third = (id{"mileage"}).klog("random third is: ");
+				fourth = (id{["mileage"]}).klog("random fourth is: ");
 				item;
 			});
 			short_trips;
