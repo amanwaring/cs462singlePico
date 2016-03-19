@@ -23,8 +23,8 @@ ruleset trip_store {
 		short_trips = function() {
 			all_trips = ent:trips;
 			short_trips = all_trips.filter( function(id, val) {
-				item = id.klog("id is: ");
-				values = val.klog("val is: ");
+				item = id//.klog("id is: ");
+				values = val//.klog("val is: ");
 				mileage = values{["mileage"]}
 				(mileage <= 60);
 			});
