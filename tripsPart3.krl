@@ -18,6 +18,14 @@ ruleset trip_store {
 			long_trips = ent:long_trips;
 			long_trips;
 		};
+
+		short_trips = function() {
+			all_trips = ent:trips();
+			short_trips = all_trips.filter( function(id, val) {
+				(val{["mileage"]} <= 60)
+			});
+			short_trips;
+		}
 	}
 	rule collect_trips {
 		select when explicit trip_processed
