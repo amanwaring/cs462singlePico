@@ -4,7 +4,6 @@ ruleset trip_store {
 		description << part three of the single pico lab >>
 		author "Andrew Manwaring"
 		logging on
-		sharing on
 		provides trips
 		provides long_trips
 		provides short_trips
