@@ -5,11 +5,12 @@ ruleset trip_store {
 		author "Andrew Manwaring"
 		logging on
 		sharing on
-		provides trips
 		provides long_trips
 		provides short_trips
 	}
 	global{
+		long_trip = 60;
+
 		trips = function() {
 			trips = ent:trips;
 			trips;
@@ -26,7 +27,7 @@ ruleset trip_store {
 				item = id; //.klog("id is: ");
 				values = val; //.klog("val is: ");
 				mileage = values{["mileage"]};
-				(mileage <= 60);
+				(mileage <= long_trip);
 			});
 			short_trips;
 		}
