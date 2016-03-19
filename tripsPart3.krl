@@ -5,6 +5,8 @@ ruleset trip_store {
 		author "Andrew Manwaring"
 		logging on
 		sharing on
+		provides trips
+		provides long_trips
 	}
 	global{
 		trips = function() {
