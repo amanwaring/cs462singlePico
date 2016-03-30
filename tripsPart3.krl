@@ -72,7 +72,7 @@ ruleset trip_store {
 	}
 
 	rule send_report {
-		select when car report_requested
+		select when explicit report_requested
 		pre {
 			cid = event:attr("cid")
 			attr = {}
