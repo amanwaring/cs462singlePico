@@ -70,4 +70,22 @@ ruleset trip_store {
 			clear ent:long_trips;
 		}
 	}
+
+	rule send_report {
+		select when car report_requested
+		pre {
+			cid = event:attr("cid")
+			attr = {}
+				.put(["cid"], cid)
+				.put(["report"], trips()
+				;
+		}
+		{
+			noop();
+		}
+		always {
+			raise explicit event report_gather
+				attributes attr;
+		}
+	}
 }
