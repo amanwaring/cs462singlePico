@@ -34,13 +34,13 @@ ruleset trip_store {
 				(mileage <= long_trip);
 			});
 			short_trips;
-		}
+		};
 
 		parent = function() {
 			results = wranglerOS:parent();
 			parent = results{"parent"};
 			parent
-		}
+		};
 
 		subscriptions = function() {
 			results = wranglerOS:subscriptions();
