@@ -36,9 +36,9 @@ ruleset trip_store {
 		}
 
 		parent = function() {
-			results = wranglerOS:parents();
-			parents = results{"parents"};
-			parents
+			results = wranglerOS:parent();
+			parent = results{"parent"};
+			parent
 		}
 	}
 	rule collect_trips {
