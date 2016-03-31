@@ -74,9 +74,9 @@ ruleset trip_store {
 	rule send_report {
 		select when explicit report_requested
 		pre {
-			cid = event:attr("cid");
+			mycid = event:attr("mycid");
 			attr = {}
-				.put(["cid"], cid)
+				.put(["mycid"], mycid)
 				.put(["report"], trips())
 				;
 		}
