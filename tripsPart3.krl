@@ -8,6 +8,8 @@ ruleset trip_store {
 		provides trips
 		provides long_trips
 		provides short_trips
+		provides parent
+		use module b507199x5 alias wranglerOS
 	}
 	global{
 		long_trip = 60;
@@ -31,6 +33,12 @@ ruleset trip_store {
 				(mileage <= long_trip);
 			});
 			short_trips;
+		}
+
+		parent = function() {
+			results = wranglerOS:parents();
+			parents = results{"parents"};
+			parents
 		}
 	}
 	rule collect_trips {
