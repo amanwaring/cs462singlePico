@@ -9,6 +9,7 @@ ruleset trip_store {
 		provides long_trips
 		provides short_trips
 		provides parent
+		provides subscriptions
 		use module b507199x5 alias wranglerOS
 	}
 	global{
@@ -40,6 +41,13 @@ ruleset trip_store {
 			parent = results{"parent"};
 			parent
 		}
+
+		subscriptions = function() {
+			results = wranglerOS:subscriptions();
+			subscriptions = results{"subscriptions"};
+			list = subscriptions{"subscribed"};
+			list
+		};
 	}
 	rule collect_trips {
 		select when explicit trip_processed
